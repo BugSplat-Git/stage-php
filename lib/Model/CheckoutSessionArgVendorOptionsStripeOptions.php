@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationPlans
+ * CheckoutSessionArgVendorOptionsStripeOptions
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * OrganizationPlans Class Doc Comment
+ * CheckoutSessionArgVendorOptionsStripeOptions Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializable
+class CheckoutSessionArgVendorOptionsStripeOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrganizationPlans';
+    protected static $openAPIModelName = 'CheckoutSessionArg_vendorOptions_stripeOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization_identifier' => 'string',
-        'plan_identifier' => 'string',
-        'plans' => '\OpenAPI\Client\Model\UserPlansPlans'
+        'allow_discount_codes' => 'bool',
+        'billing_address_collection' => 'string',
+        'metadata' => 'array<string,string>',
+        'subscription_data' => '\OpenAPI\Client\Model\CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData'
     ];
 
     /**
@@ -71,9 +72,10 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization_identifier' => null,
-        'plan_identifier' => null,
-        'plans' => null
+        'allow_discount_codes' => null,
+        'billing_address_collection' => null,
+        'metadata' => null,
+        'subscription_data' => null
     ];
 
     /**
@@ -82,9 +84,10 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization_identifier' => false,
-		'plan_identifier' => true,
-		'plans' => false
+        'allow_discount_codes' => true,
+		'billing_address_collection' => true,
+		'metadata' => true,
+		'subscription_data' => true
     ];
 
     /**
@@ -173,9 +176,10 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization_identifier' => 'organizationIdentifier',
-        'plan_identifier' => 'planIdentifier',
-        'plans' => 'plans'
+        'allow_discount_codes' => 'allowDiscountCodes',
+        'billing_address_collection' => 'billingAddressCollection',
+        'metadata' => 'metadata',
+        'subscription_data' => 'subscriptionData'
     ];
 
     /**
@@ -184,9 +188,10 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'organization_identifier' => 'setOrganizationIdentifier',
-        'plan_identifier' => 'setPlanIdentifier',
-        'plans' => 'setPlans'
+        'allow_discount_codes' => 'setAllowDiscountCodes',
+        'billing_address_collection' => 'setBillingAddressCollection',
+        'metadata' => 'setMetadata',
+        'subscription_data' => 'setSubscriptionData'
     ];
 
     /**
@@ -195,9 +200,10 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'organization_identifier' => 'getOrganizationIdentifier',
-        'plan_identifier' => 'getPlanIdentifier',
-        'plans' => 'getPlans'
+        'allow_discount_codes' => 'getAllowDiscountCodes',
+        'billing_address_collection' => 'getBillingAddressCollection',
+        'metadata' => 'getMetadata',
+        'subscription_data' => 'getSubscriptionData'
     ];
 
     /**
@@ -241,6 +247,21 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const BILLING_ADDRESS_COLLECTION_AUTO = 'AUTO';
+    public const BILLING_ADDRESS_COLLECTION_REQUIRED = 'REQUIRED';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBillingAddressCollectionAllowableValues()
+    {
+        return [
+            self::BILLING_ADDRESS_COLLECTION_AUTO,
+            self::BILLING_ADDRESS_COLLECTION_REQUIRED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -257,9 +278,10 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('organization_identifier', $data ?? [], null);
-        $this->setIfExists('plan_identifier', $data ?? [], null);
-        $this->setIfExists('plans', $data ?? [], null);
+        $this->setIfExists('allow_discount_codes', $data ?? [], null);
+        $this->setIfExists('billing_address_collection', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('subscription_data', $data ?? [], null);
     }
 
     /**
@@ -289,6 +311,15 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getBillingAddressCollectionAllowableValues();
+        if (!is_null($this->container['billing_address_collection']) && !in_array($this->container['billing_address_collection'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'billing_address_collection', must be one of '%s'",
+                $this->container['billing_address_collection'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -305,89 +336,147 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets organization_identifier
+     * Gets allow_discount_codes
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getOrganizationIdentifier()
+    public function getAllowDiscountCodes()
     {
-        return $this->container['organization_identifier'];
+        return $this->container['allow_discount_codes'];
     }
 
     /**
-     * Sets organization_identifier
+     * Sets allow_discount_codes
      *
-     * @param string|null $organization_identifier organization_identifier
+     * @param bool|null $allow_discount_codes allow_discount_codes
      *
      * @return self
      */
-    public function setOrganizationIdentifier($organization_identifier)
+    public function setAllowDiscountCodes($allow_discount_codes)
     {
-        if (is_null($organization_identifier)) {
-            throw new \InvalidArgumentException('non-nullable organization_identifier cannot be null');
-        }
-        $this->container['organization_identifier'] = $organization_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_identifier
-     *
-     * @return string|null
-     */
-    public function getPlanIdentifier()
-    {
-        return $this->container['plan_identifier'];
-    }
-
-    /**
-     * Sets plan_identifier
-     *
-     * @param string|null $plan_identifier plan_identifier
-     *
-     * @return self
-     */
-    public function setPlanIdentifier($plan_identifier)
-    {
-        if (is_null($plan_identifier)) {
-            array_push($this->openAPINullablesSetToNull, 'plan_identifier');
+        if (is_null($allow_discount_codes)) {
+            array_push($this->openAPINullablesSetToNull, 'allow_discount_codes');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('plan_identifier', $nullablesSetToNull);
+            $index = array_search('allow_discount_codes', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['plan_identifier'] = $plan_identifier;
+        $this->container['allow_discount_codes'] = $allow_discount_codes;
 
         return $this;
     }
 
     /**
-     * Gets plans
+     * Gets billing_address_collection
      *
-     * @return \OpenAPI\Client\Model\UserPlansPlans|null
+     * @return string|null
      */
-    public function getPlans()
+    public function getBillingAddressCollection()
     {
-        return $this->container['plans'];
+        return $this->container['billing_address_collection'];
     }
 
     /**
-     * Sets plans
+     * Sets billing_address_collection
      *
-     * @param \OpenAPI\Client\Model\UserPlansPlans|null $plans plans
+     * @param string|null $billing_address_collection billing_address_collection
      *
      * @return self
      */
-    public function setPlans($plans)
+    public function setBillingAddressCollection($billing_address_collection)
     {
-        if (is_null($plans)) {
-            throw new \InvalidArgumentException('non-nullable plans cannot be null');
+        if (is_null($billing_address_collection)) {
+            array_push($this->openAPINullablesSetToNull, 'billing_address_collection');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('billing_address_collection', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['plans'] = $plans;
+        $allowedValues = $this->getBillingAddressCollectionAllowableValues();
+        if (!is_null($billing_address_collection) && !in_array($billing_address_collection, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'billing_address_collection', must be one of '%s'",
+                    $billing_address_collection,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['billing_address_collection'] = $billing_address_collection;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,string>|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,string>|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription_data
+     *
+     * @return \OpenAPI\Client\Model\CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData|null
+     */
+    public function getSubscriptionData()
+    {
+        return $this->container['subscription_data'];
+    }
+
+    /**
+     * Sets subscription_data
+     *
+     * @param \OpenAPI\Client\Model\CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData|null $subscription_data subscription_data
+     *
+     * @return self
+     */
+    public function setSubscriptionData($subscription_data)
+    {
+        if (is_null($subscription_data)) {
+            array_push($this->openAPINullablesSetToNull, 'subscription_data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subscription_data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subscription_data'] = $subscription_data;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * UserPlansPlansTest
+ * CheckoutSessionArgVendorOptionsStripeOptionsTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UserPlansPlansTest Class Doc Comment
+ * CheckoutSessionArgVendorOptionsStripeOptionsTest Class Doc Comment
  *
  * @category    Class
- * @description UserPlansPlans
+ * @description CheckoutSessionArgVendorOptionsStripeOptions
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UserPlansPlansTest extends TestCase
+class CheckoutSessionArgVendorOptionsStripeOptionsTest extends TestCase
 {
 
     /**
@@ -72,18 +72,45 @@ class UserPlansPlansTest extends TestCase
     }
 
     /**
-     * Test "UserPlansPlans"
+     * Test "CheckoutSessionArgVendorOptionsStripeOptions"
      */
-    public function testUserPlansPlans()
+    public function testCheckoutSessionArgVendorOptionsStripeOptions()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "items"
+     * Test attribute "allow_discount_codes"
      */
-    public function testPropertyItems()
+    public function testPropertyAllowDiscountCodes()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "billing_address_collection"
+     */
+    public function testPropertyBillingAddressCollection()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "metadata"
+     */
+    public function testPropertyMetadata()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subscription_data"
+     */
+    public function testPropertySubscriptionData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

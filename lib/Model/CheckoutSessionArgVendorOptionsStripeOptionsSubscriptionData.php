@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationPlans
+ * CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * OrganizationPlans Class Doc Comment
+ * CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializable
+class CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrganizationPlans';
+    protected static $openAPIModelName = 'CheckoutSessionArg_vendorOptions_stripeOptions_subscriptionData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization_identifier' => 'string',
-        'plan_identifier' => 'string',
-        'plans' => '\OpenAPI\Client\Model\UserPlansPlans'
+        'metadata' => 'array<string,string>'
     ];
 
     /**
@@ -71,9 +69,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization_identifier' => null,
-        'plan_identifier' => null,
-        'plans' => null
+        'metadata' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization_identifier' => false,
-		'plan_identifier' => true,
-		'plans' => false
+        'metadata' => true
     ];
 
     /**
@@ -173,9 +167,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization_identifier' => 'organizationIdentifier',
-        'plan_identifier' => 'planIdentifier',
-        'plans' => 'plans'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -184,9 +176,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'organization_identifier' => 'setOrganizationIdentifier',
-        'plan_identifier' => 'setPlanIdentifier',
-        'plans' => 'setPlans'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -195,9 +185,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'organization_identifier' => 'getOrganizationIdentifier',
-        'plan_identifier' => 'getPlanIdentifier',
-        'plans' => 'getPlans'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -257,9 +245,7 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('organization_identifier', $data ?? [], null);
-        $this->setIfExists('plan_identifier', $data ?? [], null);
-        $this->setIfExists('plans', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -305,89 +291,35 @@ class OrganizationPlans implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets organization_identifier
+     * Gets metadata
      *
-     * @return string|null
+     * @return array<string,string>|null
      */
-    public function getOrganizationIdentifier()
+    public function getMetadata()
     {
-        return $this->container['organization_identifier'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets organization_identifier
+     * Sets metadata
      *
-     * @param string|null $organization_identifier organization_identifier
+     * @param array<string,string>|null $metadata metadata
      *
      * @return self
      */
-    public function setOrganizationIdentifier($organization_identifier)
+    public function setMetadata($metadata)
     {
-        if (is_null($organization_identifier)) {
-            throw new \InvalidArgumentException('non-nullable organization_identifier cannot be null');
-        }
-        $this->container['organization_identifier'] = $organization_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_identifier
-     *
-     * @return string|null
-     */
-    public function getPlanIdentifier()
-    {
-        return $this->container['plan_identifier'];
-    }
-
-    /**
-     * Sets plan_identifier
-     *
-     * @param string|null $plan_identifier plan_identifier
-     *
-     * @return self
-     */
-    public function setPlanIdentifier($plan_identifier)
-    {
-        if (is_null($plan_identifier)) {
-            array_push($this->openAPINullablesSetToNull, 'plan_identifier');
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('plan_identifier', $nullablesSetToNull);
+            $index = array_search('metadata', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['plan_identifier'] = $plan_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets plans
-     *
-     * @return \OpenAPI\Client\Model\UserPlansPlans|null
-     */
-    public function getPlans()
-    {
-        return $this->container['plans'];
-    }
-
-    /**
-     * Sets plans
-     *
-     * @param \OpenAPI\Client\Model\UserPlansPlans|null $plans plans
-     *
-     * @return self
-     */
-    public function setPlans($plans)
-    {
-        if (is_null($plans)) {
-            throw new \InvalidArgumentException('non-nullable plans cannot be null');
-        }
-        $this->container['plans'] = $plans;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

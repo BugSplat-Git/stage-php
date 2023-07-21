@@ -1,6 +1,6 @@
 <?php
 /**
- * UserPlansPlansTest
+ * CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionDataTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UserPlansPlansTest Class Doc Comment
+ * CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionDataTest Class Doc Comment
  *
  * @category    Class
- * @description UserPlansPlans
+ * @description CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UserPlansPlansTest extends TestCase
+class CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionDataTest extends TestCase
 {
 
     /**
@@ -72,18 +72,18 @@ class UserPlansPlansTest extends TestCase
     }
 
     /**
-     * Test "UserPlansPlans"
+     * Test "CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData"
      */
-    public function testUserPlansPlans()
+    public function testCheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "items"
+     * Test attribute "metadata"
      */
-    public function testPropertyItems()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
