@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationTest
+ * CheckoutSessionTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OrganizationTest Class Doc Comment
+ * CheckoutSessionTest Class Doc Comment
  *
  * @category    Class
- * @description Organization
+ * @description CheckoutSession
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class OrganizationTest extends TestCase
+class CheckoutSessionTest extends TestCase
 {
 
     /**
@@ -72,54 +72,18 @@ class OrganizationTest extends TestCase
     }
 
     /**
-     * Test "Organization"
+     * Test "CheckoutSession"
      */
-    public function testOrganization()
+    public function testCheckoutSession()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "identifier"
+     * Test attribute "url"
      */
-    public function testPropertyIdentifier()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "plan_identifier"
-     */
-    public function testPropertyPlanIdentifier()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "merged_organization_identifier"
-     */
-    public function testPropertyMergedOrganizationIdentifier()
+    public function testPropertyUrl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

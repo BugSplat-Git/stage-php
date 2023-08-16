@@ -1,6 +1,6 @@
 <?php
 /**
- * UserPlans
+ * Plans
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * UserPlans Class Doc Comment
+ * Plans Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
+class Plans implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'UserPlans';
+    protected static $openAPIModelName = 'Plans';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_identifier' => 'string',
-        'plan_identifier' => 'string',
-        'is_on_trial' => 'bool',
-        'plans' => '\OpenAPI\Client\Model\UserPlansPlans'
+        'items' => '\OpenAPI\Client\Model\Plan[]'
     ];
 
     /**
@@ -72,10 +69,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user_identifier' => null,
-        'plan_identifier' => null,
-        'is_on_trial' => null,
-        'plans' => null
+        'items' => null
     ];
 
     /**
@@ -84,10 +78,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'user_identifier' => false,
-		'plan_identifier' => true,
-		'is_on_trial' => true,
-		'plans' => false
+        'items' => false
     ];
 
     /**
@@ -176,10 +167,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_identifier' => 'userIdentifier',
-        'plan_identifier' => 'planIdentifier',
-        'is_on_trial' => 'isOnTrial',
-        'plans' => 'plans'
+        'items' => 'items'
     ];
 
     /**
@@ -188,10 +176,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'user_identifier' => 'setUserIdentifier',
-        'plan_identifier' => 'setPlanIdentifier',
-        'is_on_trial' => 'setIsOnTrial',
-        'plans' => 'setPlans'
+        'items' => 'setItems'
     ];
 
     /**
@@ -200,10 +185,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'user_identifier' => 'getUserIdentifier',
-        'plan_identifier' => 'getPlanIdentifier',
-        'is_on_trial' => 'getIsOnTrial',
-        'plans' => 'getPlans'
+        'items' => 'getItems'
     ];
 
     /**
@@ -263,10 +245,7 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('user_identifier', $data ?? [], null);
-        $this->setIfExists('plan_identifier', $data ?? [], null);
-        $this->setIfExists('is_on_trial', $data ?? [], null);
-        $this->setIfExists('plans', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -312,123 +291,28 @@ class UserPlans implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets user_identifier
+     * Gets items
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\Plan[]|null
      */
-    public function getUserIdentifier()
+    public function getItems()
     {
-        return $this->container['user_identifier'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets user_identifier
+     * Sets items
      *
-     * @param string|null $user_identifier user_identifier
+     * @param \OpenAPI\Client\Model\Plan[]|null $items items
      *
      * @return self
      */
-    public function setUserIdentifier($user_identifier)
+    public function setItems($items)
     {
-        if (is_null($user_identifier)) {
-            throw new \InvalidArgumentException('non-nullable user_identifier cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['user_identifier'] = $user_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_identifier
-     *
-     * @return string|null
-     */
-    public function getPlanIdentifier()
-    {
-        return $this->container['plan_identifier'];
-    }
-
-    /**
-     * Sets plan_identifier
-     *
-     * @param string|null $plan_identifier plan_identifier
-     *
-     * @return self
-     */
-    public function setPlanIdentifier($plan_identifier)
-    {
-        if (is_null($plan_identifier)) {
-            array_push($this->openAPINullablesSetToNull, 'plan_identifier');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('plan_identifier', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['plan_identifier'] = $plan_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_on_trial
-     *
-     * @return bool|null
-     */
-    public function getIsOnTrial()
-    {
-        return $this->container['is_on_trial'];
-    }
-
-    /**
-     * Sets is_on_trial
-     *
-     * @param bool|null $is_on_trial is_on_trial
-     *
-     * @return self
-     */
-    public function setIsOnTrial($is_on_trial)
-    {
-        if (is_null($is_on_trial)) {
-            array_push($this->openAPINullablesSetToNull, 'is_on_trial');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_on_trial', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['is_on_trial'] = $is_on_trial;
-
-        return $this;
-    }
-
-    /**
-     * Gets plans
-     *
-     * @return \OpenAPI\Client\Model\UserPlansPlans|null
-     */
-    public function getPlans()
-    {
-        return $this->container['plans'];
-    }
-
-    /**
-     * Sets plans
-     *
-     * @param \OpenAPI\Client\Model\UserPlansPlans|null $plans plans
-     *
-     * @return self
-     */
-    public function setPlans($plans)
-    {
-        if (is_null($plans)) {
-            throw new \InvalidArgumentException('non-nullable plans cannot be null');
-        }
-        $this->container['plans'] = $plans;
+        $this->container['items'] = $items;
 
         return $this;
     }

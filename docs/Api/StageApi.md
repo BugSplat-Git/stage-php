@@ -13,6 +13,8 @@ All URIs are relative to https://api.heystage.com/sdk-api, except if the operati
 | [**createUserCheckoutSession()**](StageApi.md#createUserCheckoutSession) | **POST** /billing/users/{userIdentifier}/plans/{planIdentifier}/checkoutSessions |  |
 | [**getOrganization()**](StageApi.md#getOrganization) | **GET** /organizations/{organizationIdentifier} |  |
 | [**getOrganizationPlans()**](StageApi.md#getOrganizationPlans) | **GET** /organizations/{organizationIdentifier}/plans |  |
+| [**getPlansForOrganizations()**](StageApi.md#getPlansForOrganizations) | **GET** /organizations/plans |  |
+| [**getPlansForUsers()**](StageApi.md#getPlansForUsers) | **GET** /users/plans |  |
 | [**getUser()**](StageApi.md#getUser) | **GET** /users/{userIdentifier} |  |
 | [**getUserPlans()**](StageApi.md#getUserPlans) | **GET** /users/{userIdentifier}/plans |  |
 | [**hasAccess()**](StageApi.md#hasAccess) | **GET** /users/{userIdentifier}/features/{featureIdentifier}/access |  |
@@ -205,7 +207,7 @@ try {
 ## `createOrganizationCheckoutSession()`
 
 ```php
-createOrganizationCheckoutSession($organization_identifier, $plan_identifier, $checkout_session_arg)
+createOrganizationCheckoutSession($organization_identifier, $plan_identifier, $checkout_session_arg): \OpenAPI\Client\Model\CheckoutSession
 ```
 
 
@@ -232,7 +234,8 @@ $plan_identifier = 'plan_identifier_example'; // string
 $checkout_session_arg = new \OpenAPI\Client\Model\CheckoutSessionArg(); // \OpenAPI\Client\Model\CheckoutSessionArg
 
 try {
-    $apiInstance->createOrganizationCheckoutSession($organization_identifier, $plan_identifier, $checkout_session_arg);
+    $result = $apiInstance->createOrganizationCheckoutSession($organization_identifier, $plan_identifier, $checkout_session_arg);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StageApi->createOrganizationCheckoutSession: ', $e->getMessage(), PHP_EOL;
 }
@@ -248,7 +251,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\CheckoutSession**](../Model/CheckoutSession.md)
 
 ### Authorization
 
@@ -257,7 +260,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/problem+json`
+- **Accept**: `application/vnd.heystage.v1+json`, `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -384,7 +387,7 @@ try {
 ## `createUserCheckoutSession()`
 
 ```php
-createUserCheckoutSession($user_identifier, $plan_identifier, $checkout_session_arg)
+createUserCheckoutSession($user_identifier, $plan_identifier, $checkout_session_arg): \OpenAPI\Client\Model\CheckoutSession
 ```
 
 
@@ -411,7 +414,8 @@ $plan_identifier = 'plan_identifier_example'; // string
 $checkout_session_arg = new \OpenAPI\Client\Model\CheckoutSessionArg(); // \OpenAPI\Client\Model\CheckoutSessionArg
 
 try {
-    $apiInstance->createUserCheckoutSession($user_identifier, $plan_identifier, $checkout_session_arg);
+    $result = $apiInstance->createUserCheckoutSession($user_identifier, $plan_identifier, $checkout_session_arg);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StageApi->createUserCheckoutSession: ', $e->getMessage(), PHP_EOL;
 }
@@ -427,7 +431,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\CheckoutSession**](../Model/CheckoutSession.md)
 
 ### Authorization
 
@@ -436,7 +440,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/problem+json`
+- **Accept**: `application/vnd.heystage.v1+json`, `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -544,6 +548,116 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\OrganizationPlans**](../Model/OrganizationPlans.md)
+
+### Authorization
+
+[StageApiKey](../../README.md#StageApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/vnd.heystage.v1+json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPlansForOrganizations()`
+
+```php
+getPlansForOrganizations(): \OpenAPI\Client\Model\Plans
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: StageApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\StageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getPlansForOrganizations();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StageApi->getPlansForOrganizations: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\Plans**](../Model/Plans.md)
+
+### Authorization
+
+[StageApiKey](../../README.md#StageApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/vnd.heystage.v1+json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPlansForUsers()`
+
+```php
+getPlansForUsers(): \OpenAPI\Client\Model\Plans
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: StageApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\StageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getPlansForUsers();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StageApi->getPlansForUsers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\Plans**](../Model/Plans.md)
 
 ### Authorization
 
