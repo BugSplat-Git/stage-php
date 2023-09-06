@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateUserArg
+ * CreateUsersArg
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * CreateUserArg Class Doc Comment
+ * CreateUsersArg Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateUsersArg implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateUserArg';
+    protected static $openAPIModelName = 'CreateUsersArg';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'identifier' => 'string',
-        'plan_identifier' => 'string',
-        'is_on_trial' => 'bool'
+        'items' => '\OpenAPI\Client\Model\CreateUserArg[]'
     ];
 
     /**
@@ -71,9 +69,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'identifier' => null,
-        'plan_identifier' => null,
-        'is_on_trial' => null
+        'items' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'identifier' => false,
-		'plan_identifier' => true,
-		'is_on_trial' => true
+        'items' => false
     ];
 
     /**
@@ -173,9 +167,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'identifier' => 'identifier',
-        'plan_identifier' => 'planIdentifier',
-        'is_on_trial' => 'isOnTrial'
+        'items' => 'items'
     ];
 
     /**
@@ -184,9 +176,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'identifier' => 'setIdentifier',
-        'plan_identifier' => 'setPlanIdentifier',
-        'is_on_trial' => 'setIsOnTrial'
+        'items' => 'setItems'
     ];
 
     /**
@@ -195,9 +185,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'identifier' => 'getIdentifier',
-        'plan_identifier' => 'getPlanIdentifier',
-        'is_on_trial' => 'getIsOnTrial'
+        'items' => 'getItems'
     ];
 
     /**
@@ -257,9 +245,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('identifier', $data ?? [], null);
-        $this->setIfExists('plan_identifier', $data ?? [], null);
-        $this->setIfExists('is_on_trial', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -305,96 +291,28 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets identifier
+     * Gets items
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\CreateUserArg[]|null
      */
-    public function getIdentifier()
+    public function getItems()
     {
-        return $this->container['identifier'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets identifier
+     * Sets items
      *
-     * @param string|null $identifier identifier
+     * @param \OpenAPI\Client\Model\CreateUserArg[]|null $items items
      *
      * @return self
      */
-    public function setIdentifier($identifier)
+    public function setItems($items)
     {
-        if (is_null($identifier)) {
-            throw new \InvalidArgumentException('non-nullable identifier cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['identifier'] = $identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_identifier
-     *
-     * @return string|null
-     */
-    public function getPlanIdentifier()
-    {
-        return $this->container['plan_identifier'];
-    }
-
-    /**
-     * Sets plan_identifier
-     *
-     * @param string|null $plan_identifier plan_identifier
-     *
-     * @return self
-     */
-    public function setPlanIdentifier($plan_identifier)
-    {
-        if (is_null($plan_identifier)) {
-            array_push($this->openAPINullablesSetToNull, 'plan_identifier');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('plan_identifier', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['plan_identifier'] = $plan_identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_on_trial
-     *
-     * @return bool|null
-     */
-    public function getIsOnTrial()
-    {
-        return $this->container['is_on_trial'];
-    }
-
-    /**
-     * Sets is_on_trial
-     *
-     * @param bool|null $is_on_trial This property is applicable only when planIdentifier is not null.
-     *
-     * @return self
-     */
-    public function setIsOnTrial($is_on_trial)
-    {
-        if (is_null($is_on_trial)) {
-            array_push($this->openAPINullablesSetToNull, 'is_on_trial');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_on_trial', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['is_on_trial'] = $is_on_trial;
+        $this->container['items'] = $items;
 
         return $this;
     }

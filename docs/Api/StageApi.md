@@ -9,8 +9,10 @@ All URIs are relative to https://api.heystage.com/sdk-api, except if the operati
 | [**createOrganization()**](StageApi.md#createOrganization) | **POST** /organizations |  |
 | [**createOrganizationCheckoutSession()**](StageApi.md#createOrganizationCheckoutSession) | **POST** /billing/organizations/{organizationIdentifier}/plans/{planIdentifier}/checkoutSessions |  |
 | [**createOrganizationUser()**](StageApi.md#createOrganizationUser) | **POST** /organizations/{organizationIdentifier}/users |  |
+| [**createOrganizationUsers()**](StageApi.md#createOrganizationUsers) | **POST** /organizations/{organizationIdentifier}/users/bulk |  |
 | [**createUser()**](StageApi.md#createUser) | **POST** /users |  |
 | [**createUserCheckoutSession()**](StageApi.md#createUserCheckoutSession) | **POST** /billing/users/{userIdentifier}/plans/{planIdentifier}/checkoutSessions |  |
+| [**createUsers()**](StageApi.md#createUsers) | **POST** /users/bulk |  |
 | [**getOrganization()**](StageApi.md#getOrganization) | **GET** /organizations/{organizationIdentifier} |  |
 | [**getOrganizationPlans()**](StageApi.md#getOrganizationPlans) | **GET** /organizations/{organizationIdentifier}/plans |  |
 | [**getPlansForOrganizations()**](StageApi.md#getPlansForOrganizations) | **GET** /organizations/plans |  |
@@ -326,6 +328,66 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createOrganizationUsers()`
+
+```php
+createOrganizationUsers($organization_identifier, $create_organization_users_arg): \OpenAPI\Client\Model\Users
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: StageApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\StageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$organization_identifier = 'organization_identifier_example'; // string
+$create_organization_users_arg = new \OpenAPI\Client\Model\CreateOrganizationUsersArg(); // \OpenAPI\Client\Model\CreateOrganizationUsersArg
+
+try {
+    $result = $apiInstance->createOrganizationUsers($organization_identifier, $create_organization_users_arg);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StageApi->createOrganizationUsers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **organization_identifier** | **string**|  | |
+| **create_organization_users_arg** | [**\OpenAPI\Client\Model\CreateOrganizationUsersArg**](../Model/CreateOrganizationUsersArg.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Users**](../Model/Users.md)
+
+### Authorization
+
+[StageApiKey](../../README.md#StageApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/vnd.heystage.v1+json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `createUser()`
 
 ```php
@@ -432,6 +494,64 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\CheckoutSession**](../Model/CheckoutSession.md)
+
+### Authorization
+
+[StageApiKey](../../README.md#StageApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/vnd.heystage.v1+json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createUsers()`
+
+```php
+createUsers($create_users_arg): \OpenAPI\Client\Model\Users
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: StageApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\StageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_users_arg = new \OpenAPI\Client\Model\CreateUsersArg(); // \OpenAPI\Client\Model\CreateUsersArg
+
+try {
+    $result = $apiInstance->createUsers($create_users_arg);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StageApi->createUsers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_users_arg** | [**\OpenAPI\Client\Model\CreateUsersArg**](../Model/CreateUsersArg.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Users**](../Model/Users.md)
 
 ### Authorization
 

@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **is_on_trial** | **bool** |  | [optional]
 **collect_payment_method_when_trialing** | **bool** |  | [optional]
 **vendor_options** | [**\OpenAPI\Client\Model\CheckoutSessionArgVendorOptions**](CheckoutSessionArgVendorOptions.md) |  | [optional]
+**plan_overrides** | [**\OpenAPI\Client\Model\CheckoutSessionArgPlanOverrides**](CheckoutSessionArgPlanOverrides.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

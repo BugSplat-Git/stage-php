@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateUserArg
+ * CheckoutSessionArgPlanOverrides
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * CreateUserArg Class Doc Comment
+ * CheckoutSessionArgPlanOverrides Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
+class CheckoutSessionArgPlanOverrides implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateUserArg';
+    protected static $openAPIModelName = 'CheckoutSessionArg_planOverrides';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'identifier' => 'string',
-        'plan_identifier' => 'string',
-        'is_on_trial' => 'bool'
+        'monthly_price' => 'float',
+        'annual_price' => 'float',
+        'feature_prices' => 'array<string,float>',
+        'feature_limits' => 'array<string,int>',
+        'shared_feature_limits' => 'array<string,int>'
     ];
 
     /**
@@ -71,9 +73,11 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'identifier' => null,
-        'plan_identifier' => null,
-        'is_on_trial' => null
+        'monthly_price' => null,
+        'annual_price' => null,
+        'feature_prices' => null,
+        'feature_limits' => null,
+        'shared_feature_limits' => null
     ];
 
     /**
@@ -82,9 +86,11 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'identifier' => false,
-		'plan_identifier' => true,
-		'is_on_trial' => true
+        'monthly_price' => true,
+		'annual_price' => true,
+		'feature_prices' => true,
+		'feature_limits' => true,
+		'shared_feature_limits' => true
     ];
 
     /**
@@ -173,9 +179,11 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'identifier' => 'identifier',
-        'plan_identifier' => 'planIdentifier',
-        'is_on_trial' => 'isOnTrial'
+        'monthly_price' => 'monthlyPrice',
+        'annual_price' => 'annualPrice',
+        'feature_prices' => 'featurePrices',
+        'feature_limits' => 'featureLimits',
+        'shared_feature_limits' => 'sharedFeatureLimits'
     ];
 
     /**
@@ -184,9 +192,11 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'identifier' => 'setIdentifier',
-        'plan_identifier' => 'setPlanIdentifier',
-        'is_on_trial' => 'setIsOnTrial'
+        'monthly_price' => 'setMonthlyPrice',
+        'annual_price' => 'setAnnualPrice',
+        'feature_prices' => 'setFeaturePrices',
+        'feature_limits' => 'setFeatureLimits',
+        'shared_feature_limits' => 'setSharedFeatureLimits'
     ];
 
     /**
@@ -195,9 +205,11 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'identifier' => 'getIdentifier',
-        'plan_identifier' => 'getPlanIdentifier',
-        'is_on_trial' => 'getIsOnTrial'
+        'monthly_price' => 'getMonthlyPrice',
+        'annual_price' => 'getAnnualPrice',
+        'feature_prices' => 'getFeaturePrices',
+        'feature_limits' => 'getFeatureLimits',
+        'shared_feature_limits' => 'getSharedFeatureLimits'
     ];
 
     /**
@@ -257,9 +269,11 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('identifier', $data ?? [], null);
-        $this->setIfExists('plan_identifier', $data ?? [], null);
-        $this->setIfExists('is_on_trial', $data ?? [], null);
+        $this->setIfExists('monthly_price', $data ?? [], null);
+        $this->setIfExists('annual_price', $data ?? [], null);
+        $this->setIfExists('feature_prices', $data ?? [], null);
+        $this->setIfExists('feature_limits', $data ?? [], null);
+        $this->setIfExists('shared_feature_limits', $data ?? [], null);
     }
 
     /**
@@ -305,96 +319,171 @@ class CreateUserArg implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets identifier
+     * Gets monthly_price
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getIdentifier()
+    public function getMonthlyPrice()
     {
-        return $this->container['identifier'];
+        return $this->container['monthly_price'];
     }
 
     /**
-     * Sets identifier
+     * Sets monthly_price
      *
-     * @param string|null $identifier identifier
+     * @param float|null $monthly_price monthly_price
      *
      * @return self
      */
-    public function setIdentifier($identifier)
+    public function setMonthlyPrice($monthly_price)
     {
-        if (is_null($identifier)) {
-            throw new \InvalidArgumentException('non-nullable identifier cannot be null');
-        }
-        $this->container['identifier'] = $identifier;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_identifier
-     *
-     * @return string|null
-     */
-    public function getPlanIdentifier()
-    {
-        return $this->container['plan_identifier'];
-    }
-
-    /**
-     * Sets plan_identifier
-     *
-     * @param string|null $plan_identifier plan_identifier
-     *
-     * @return self
-     */
-    public function setPlanIdentifier($plan_identifier)
-    {
-        if (is_null($plan_identifier)) {
-            array_push($this->openAPINullablesSetToNull, 'plan_identifier');
+        if (is_null($monthly_price)) {
+            array_push($this->openAPINullablesSetToNull, 'monthly_price');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('plan_identifier', $nullablesSetToNull);
+            $index = array_search('monthly_price', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['plan_identifier'] = $plan_identifier;
+        $this->container['monthly_price'] = $monthly_price;
 
         return $this;
     }
 
     /**
-     * Gets is_on_trial
+     * Gets annual_price
      *
-     * @return bool|null
+     * @return float|null
      */
-    public function getIsOnTrial()
+    public function getAnnualPrice()
     {
-        return $this->container['is_on_trial'];
+        return $this->container['annual_price'];
     }
 
     /**
-     * Sets is_on_trial
+     * Sets annual_price
      *
-     * @param bool|null $is_on_trial This property is applicable only when planIdentifier is not null.
+     * @param float|null $annual_price annual_price
      *
      * @return self
      */
-    public function setIsOnTrial($is_on_trial)
+    public function setAnnualPrice($annual_price)
     {
-        if (is_null($is_on_trial)) {
-            array_push($this->openAPINullablesSetToNull, 'is_on_trial');
+        if (is_null($annual_price)) {
+            array_push($this->openAPINullablesSetToNull, 'annual_price');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_on_trial', $nullablesSetToNull);
+            $index = array_search('annual_price', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['is_on_trial'] = $is_on_trial;
+        $this->container['annual_price'] = $annual_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets feature_prices
+     *
+     * @return array<string,float>|null
+     */
+    public function getFeaturePrices()
+    {
+        return $this->container['feature_prices'];
+    }
+
+    /**
+     * Sets feature_prices
+     *
+     * @param array<string,float>|null $feature_prices feature_prices
+     *
+     * @return self
+     */
+    public function setFeaturePrices($feature_prices)
+    {
+        if (is_null($feature_prices)) {
+            array_push($this->openAPINullablesSetToNull, 'feature_prices');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('feature_prices', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['feature_prices'] = $feature_prices;
+
+        return $this;
+    }
+
+    /**
+     * Gets feature_limits
+     *
+     * @return array<string,int>|null
+     */
+    public function getFeatureLimits()
+    {
+        return $this->container['feature_limits'];
+    }
+
+    /**
+     * Sets feature_limits
+     *
+     * @param array<string,int>|null $feature_limits feature_limits
+     *
+     * @return self
+     */
+    public function setFeatureLimits($feature_limits)
+    {
+        if (is_null($feature_limits)) {
+            array_push($this->openAPINullablesSetToNull, 'feature_limits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('feature_limits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['feature_limits'] = $feature_limits;
+
+        return $this;
+    }
+
+    /**
+     * Gets shared_feature_limits
+     *
+     * @return array<string,int>|null
+     */
+    public function getSharedFeatureLimits()
+    {
+        return $this->container['shared_feature_limits'];
+    }
+
+    /**
+     * Sets shared_feature_limits
+     *
+     * @param array<string,int>|null $shared_feature_limits shared_feature_limits
+     *
+     * @return self
+     */
+    public function setSharedFeatureLimits($shared_feature_limits)
+    {
+        if (is_null($shared_feature_limits)) {
+            array_push($this->openAPINullablesSetToNull, 'shared_feature_limits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shared_feature_limits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shared_feature_limits'] = $shared_feature_limits;
 
         return $this;
     }
