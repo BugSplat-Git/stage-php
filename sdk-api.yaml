@@ -15,7 +15,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.0.43
+  version: 0.0.44
 
 externalDocs:
   description: Stage documentation
@@ -963,34 +963,30 @@ components:
                       nullable: true
                       additionalProperties:
                         type: string
+                lineItems:
+                  type: object
+                  nullable: true
+                  additionalProperties:
+                    type: integer
         planOverrides:
           type: object
           nullable: true
           properties:
-            monthlyPrice:
-              type: number
-              nullable: true
-            annualPrice:
-              type: number
-              nullable: true
             featurePrices:
               type: object
               nullable: true
               additionalProperties:
                 type: number
-                nullable: true
             featureLimits:
               type: object
               nullable: true
               additionalProperties:
                 type: integer
-                nullable: true
             sharedFeatureLimits:
               type: object
               nullable: true
               additionalProperties:
                 type: integer
-                nullable: true
     CheckoutSession:
       type: object
       properties:

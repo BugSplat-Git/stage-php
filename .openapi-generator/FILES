@@ -68,7 +68,3 @@ lib/Model/UserPlansPlans.php
 lib/Model/Users.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/CheckoutSessionArgPlanOverridesTest.php
-test/Model/CreateOrganizationUsersArgTest.php
-test/Model/CreateUsersArgTest.php
-test/Model/UsersTest.php

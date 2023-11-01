@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **billing_address_collection** | **string** |  | [optional]
 **metadata** | **array<string,string>** |  | [optional]
 **subscription_data** | [**\OpenAPI\Client\Model\CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData**](CheckoutSessionArgVendorOptionsStripeOptionsSubscriptionData.md) |  | [optional]
+**line_items** | **array<string,int>** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
